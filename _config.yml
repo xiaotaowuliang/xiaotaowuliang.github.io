@@ -83,7 +83,7 @@ analytics:
 
 # Site Author
 author:
-  name             :小焘无量"
+  name             : "小焘无量"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an amazing person."
   location         : "Somewhere"
