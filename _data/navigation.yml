@@ -10,7 +10,9 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-  - title: "简书博客"
+  - title: "博客"
     url: http://www.jianshu.com/u/41726759860e
-  # - title: "个人"
-  #   url: 
+  - title: "github"
+    url: https://github.com/xiaotaowuliang
+  - title: "个人"
+    url:
