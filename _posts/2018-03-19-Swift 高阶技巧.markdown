@@ -3,9 +3,20 @@ layout: post
 title:  "Swift 高阶技巧"
 date:   2018-03-19 09:56:49 +0800
 
-categories: swift
+title: "Layout: Header Image (Horizontal)"
+header:
+  image: /assets/images/unsplash-image-1.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+categories:
+  - Swift Tips
+tags:
+  - Swift
 
 ---
+
+
+
+
 
 
 
@@ -19,7 +30,7 @@ categories: swift
 func square(x:Int) -> Int {return x * x}
 var squaredNum = square(x: 5)
 square(x: squaredNum)
-``` 
+```
 这种写法虽然也可以完成，但是如果需要求5的4次方，就得创建一个变量，或者```square(x: square(x: 5))```来完成，这里可以使用扩展，链式的完成这个需求
 
 ``` 
@@ -29,7 +40,7 @@ extension Int {
 }
 5.squared  // 5的平方，25
 5.squared.squared  // 5的4次方，625
-``` 
+```
 ##### 2. 泛型
 要求：打印输出3个数组内的所有元素
 ```
@@ -52,7 +63,7 @@ func printDoubleArray(arr:[Double]) {
         print(i)
     }
 }
-``` 
+```
 就为了输出三个数组，就得写三个方法，那要是数组种类多了怎么办，不能忍啊
 ``` 
 // 高手写法
@@ -61,7 +72,7 @@ func printElemtFromArray<T>(arr: [T]) {
         print(elemt)
     }
 }
-``` 
+```
 ##### 3. Gaurd let if let
 要求：写个欢迎新用户的程序
 ```
@@ -85,7 +96,7 @@ func userLogin() {
     }
     print(userName,password)
 }
-``` 
+```
 #### 4. 属性观测器
 要求：计算圆的直径
 
@@ -96,7 +107,7 @@ func getRadius(diameter: Double) -> Double { return diameter / 2}
 getDiameter(radius: 10) // return 20
 getRadius(diameter: 200) // return 100
 getRadius(diameter: 600) // return 300
-``` 
+```
 在上面我们创建了2个毫无关系的函数，可是直径和周长真的没关系吗？
 ``` 
 // 高手写法
@@ -105,7 +116,7 @@ var radius:Double = 10 {
     willSet { print("装备赋值中") }
     didSet { diameter = radius * 2 }
 }
-``` 
+```
 **willSet** 会在给变量radius赋值前调用，而 **didSet** 会在给变量radius赋值后调用。
 #### 5. 空合运算符
 要求：用户选择微博主题颜色
@@ -119,12 +130,12 @@ if let theColor = userChoseColor {
 }else {
     colorToUse = defaultColor
 }
-``` 
+```
 这确实有些臃肿，来减减肥
 ``` 
 // 高手写法
 colorToUse = userChoseColor ?? defaultColor
-``` 
+```
 稍微解释下，如userChoseColor为nil，则会选择defaultColor，否则为userChoseColor。其实空合运算符就是对一下代码的简短表达方法。
 ``` 
 a != nil ? a! : b  //三目运算符
@@ -141,13 +152,13 @@ for i in 0..<evensArr.count {
     }
 }
 print(newEvensArr)
-``` 
+```
 这种for循环真是冗长，看着就昏昏欲睡
 ``` 
 // 高手写法
 let newEvensArr = evensArr.filter({$0 % 2 == 0})
 print(newEvensArr)
-``` 
+```
 这里涉及到三种高阶函数，map，filter，reduce，以及$的含义，详情见文章[《Swift 的 Map、Filter、Reduce等高阶函数，以及$的含义》](www.jianshu.com/p/331cfd89d3bb)
 ##### 7. 闭包 vs 函数
 要求：求两个数字的和
@@ -157,13 +168,13 @@ func sum(x: Int, y: Int) -> Int {
      return x + y 
 }
 var result = sum(x: 5, y: 6) // 11
-``` 
+```
 为了这个功能我们还需要记住函数名称？ 就不能直接调用属性得到值吗？当然可以
 ``` 
 // 高手写法
 var sumUsingClosure:(Int,Int) -> Int = { $0 + $1 }    // 用闭包替代函数
 print(sumUsingClosure(9,1))    // 10
-``` 
+```
 ##### 8. 遍历初始化
 要求：一个人有多少根手指和脚趾
 ``` 
@@ -181,7 +192,7 @@ class Human {
 var daDi = Human(finger: 10, toe: 10)
 daDi.finger // 10
 daDi.toe // 10
-``` 
+```
 因为绝大部分的人都有十根手指和脚趾，可以初始化时预先赋值
 ``` 
 class Human {
@@ -217,7 +228,7 @@ class MathHelper {
         return resultOfCalculation
     }()
 }
-``` 
+```
 计算pi的工作量是繁重的，且对于调用者不是必须的，可以假想下MathHelper内包含数十个类pi常量的场景，如果不在使用的时候再初始化常量会浪费多少宝贵的计算资源。
 ``` 
 class MathHelper {
@@ -226,7 +237,7 @@ class MathHelper {
         return resultOfCalculation
     }()
 }
-``` 
+```
 简单来说，就是在使用时再去加载，不使用时不会进行计算、加载
 
 lazy 一方面可以让初始化成本较高的变量延迟初始化，提高资源利用效率。另一方面可以延迟初始化具有外部依赖的属性变量。
