@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Welcome to Jekyll!"
+date:   2018-03-19 09:56:49 +0800
+
+categories: jekyll update
+
+---
+
+
+
+锦悦楠庭：清水
+
+登记号：20180314003046
+
+B1:  99.93
+
+C:  115.69
+
+1w1左右
+
+
+
+![2051520837119_.pic_hd](/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/4a81970cb5d17a041a5a120e37a72d87/Message/MessageTemp/29a25b1f0e6e6bc8f810388feedc270b/Image/2051520837119_.pic_hd.jpg)
+
+
+
+![2131521098871_.pic_hd](/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/4a81970cb5d17a041a5a120e37a72d87/Message/MessageTemp/29a25b1f0e6e6bc8f810388feedc270b/Image/2131521098871_.pic_hd.jpg)
